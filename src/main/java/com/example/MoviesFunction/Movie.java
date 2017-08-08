@@ -1,23 +1,20 @@
 package com.example.MoviesFunction;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-
-    @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Movie {
-    String title;
-    String posterPath; //(You will need to annotate this with @JsonProperty to make it match to poster_path)
-    String overview;
-    double popularity;
+    private String title;
+
+    @JsonProperty("poster_path")
+    private String posterPath;
+
+    private static final String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/original";
+    private String overview;
+    private double popularity;
 
     public Movie() {
-    }
-
-    public Movie(String title, String posterPath, String overview, double popularity) {
-
-        this.title = title;
-        this.posterPath = posterPath;
-        this.overview = overview;
-        this.popularity = popularity;
     }
 
     public String getTitle() {
@@ -33,7 +30,7 @@ public class Movie {
     }
 
     public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
+        this.posterPath = IMAGE_BASE_URL + posterPath;
     }
 
     public String getOverview() {
