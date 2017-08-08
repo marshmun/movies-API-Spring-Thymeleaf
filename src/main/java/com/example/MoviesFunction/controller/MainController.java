@@ -1,7 +1,5 @@
 package com.example.MoviesFunction.controller;
 
-
-
 import com.example.MoviesFunction.Movie;
 import com.example.MoviesFunction.ResultPage;
 import org.springframework.stereotype.Controller;
@@ -17,7 +15,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 @Controller
-public class BasicController {
+public class MainController {
     private static final String API_TOKEN = "be2a38521a7859c95e2d73c48786e4bb";
     private static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + API_TOKEN;
     private static RestTemplate restTemplate = new RestTemplate();
